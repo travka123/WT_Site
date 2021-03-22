@@ -1,0 +1,48 @@
+.content-section {
+    width: 100%;
+    /* height: calc(100vh - 180px); */
+    margin-bottom: 30px;
+}
+
+.content-foto-list {
+    margin: 0 10%;
+    background-color: rgba(57, 57, 59, 0.7);
+}
+
+.content-foto-list ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+.content-foto-list h2 {
+   color: white;
+   padding: 20px;
+   text-align: center;
+   font-size: x-large;
+   margin: 0px;
+}    
+
+.foto-list li {
+    width: 20%;
+    display: inline-block;
+    padding: 25px 2%;
+}
+
+
+@media (max-width: 1000px)
+{
+    .foto-list li {
+        width: 40%;
+    }
+}
+
+@media (max-device-width: 640px)
+{
+    .foto-list li {
+        width: 90%;
+    }
+}
+
+.foto-list img {
+    width: 100%;
+}
