@@ -1,0 +1,74 @@
+.content-select-list {
+    text-align: center;
+    width: 80%;
+    margin: 10%;              
+    background-color: rgba(57, 57, 59, 0.7);
+    color: white;
+}
+
+.content-select-list ul {
+    padding: 0;
+}
+
+.content-select-list h2 {
+    padding: 15px;
+}
+
+.content-select-list li {
+    padding: 10px;
+    display: inline-block;
+    padding-bottom: 20px;
+    font-size: medium;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.auto-classes-list li {
+    width: 30%;
+}
+
+.auto-classes-list img {
+    width: 100%;
+}
+
+.autologo-image-list li {
+    width: 16%;
+}
+
+.autologo-image-list img {
+    width: 100%;
+}
+
+@media (max-width: 880px)
+{
+    .auto-classes-list li {
+        width: 40%;
+    }
+    .autologo-image-list li {
+        width: 30%;
+    }
+}
+
+@media (max-device-width: 880px)
+{
+    .auto-classes-list li {
+        width: 40%;
+    }
+    .autologo-image-list li {
+        width: 30%;
+    }
+}
+
+.features {
+    background-color: dimgray;
+    color: white;
+    padding: 15px;
+    padding-bottom: 25px;
+}
+
+.features p {
+    display: inline-block;
+    vertical-align: top;
+    width: 22%;
+    margin: 0 5px;
+    text-align: center;
+}
