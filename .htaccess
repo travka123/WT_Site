@@ -1,5 +1,1 @@
 AddDefaultCharset UTF-8
-
-RewriteEngine on
-RewriteCond %{REQUEST_URI} !\.(css|js|jpg|gif|png)$
-RewriteRule ^(.*)$ index.php?page=$1 [L,QSA]

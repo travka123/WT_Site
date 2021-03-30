@@ -1,0 +1,49 @@
+.content-section {
+    width: 100%;
+    height: calc(100vh - 180px);
+}
+
+.contact-section {
+    margin: 0 auto;
+    background-color: rgba(57, 57, 59, 0.7);
+    width: 60%;
+}
+
+.contact-section h2 {
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px;
+    font-size: xx-large;
+    color: white;
+}
+
+.contact-section textarea {
+    font-size: x-large;
+    margin: 10px 5% 30px;
+    padding-left: 30px;
+    width: 90%;
+    border: 0;
+    padding: 0;
+    resize: none;
+}
+
+.contact-section button {  
+    cursor: pointer;
+    padding: 5px 10px;       
+    margin: 0px 5% 30px;
+    font-size: large;
+    opacity: 0.6; 
+    transition: 0.3s;    
+}
+
+.contact-section button:hover {
+    transition: 0.3s;
+    opacity: 1;
+}
+
+.contact-section button span {
+    margin: 0 auto;
+    text-align: center;
+    font-size: large;
+    color: black;
+}

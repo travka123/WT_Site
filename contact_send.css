@@ -1,0 +1,37 @@
+.content-section {
+    width: 100%;
+    height: calc(100vh - 180px);
+}
+
+.contact-sended-information {
+    margin: 0 auto;
+    background-color: rgba(57, 57, 59, 0.7);
+    width: 60%;
+    padding: 20px;
+    padding-bottom: 30px;
+}
+
+.contact-sended-information h2 {
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px;
+    font-size: xx-large;
+    color: white;
+}
+
+.contact-sended-information span {
+    font-size: x-large;
+    color: white;
+    width: 90%;
+    border: 0;
+    resize: none;
+    white-space: pre-wrap;
+}
+
+.contact-sended-information .phonenumber {
+    color:green;
+}
+
+.contact-sended-information .underline {
+    text-decoration: underline;
+}
