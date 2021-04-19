@@ -27,7 +27,7 @@ body {
             }
 
             header {
-                margin-bottom: 100px;
+                margin: 0;
             }
 
             .header-menu ul {
@@ -100,3 +100,5 @@ body {
             
            
             .dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+            

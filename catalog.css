@@ -1,0 +1,12 @@
+.content-section {
+    min-height: calc(100vh - 180px);
+}
+
+.content-section-cards {
+    margin: 100px 20px 0px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: rgba(57, 57, 59, 0.7);
+    border-radius: 5px;
+}
