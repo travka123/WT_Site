@@ -30,10 +30,11 @@ function highlight_phonenumber(string $text)
     return $text;
 }
 
-$contact_information = $_POST['contact_information'];
+
 
 if ($_POST)
 {
+    $contact_information = $_POST['contact_information'];
     $template = file_get_contents('template_base.html');
     $template = str_replace('{header}', file_get_contents('header.html'), $template);
     $template = str_replace('{footer}', file_get_contents('footer.html'), $template);

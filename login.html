@@ -1,13 +1,14 @@
 
 
         <div class="content-section">
-            <form class="login-section">
+            <form class="login-section" action="authorization.php" method="POST">
                 <h2>Выполните вход</h2>
                 <span>Логин:</span>
-                <input class="input-login" placeholder="login">
+                <input class="input-login" name="login" placeholder="login">
                 <span>Пароль:</span>
-                <input class="input-pass" type="password" placeholder="password">
-                <button><span>Войти</span></button>
+                <input class="input-pass" name="password" type="password" placeholder="password">
+                <button type="submit" name="authorization"><span>Войти</span></button>
+                <button type="submit" name="registration"><span>Войти</span></button>
                 <button><span>Забыли пароль?</span></button>
             </form>
         </div>
