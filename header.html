@@ -13,10 +13,16 @@
             <li> <a href="">Условия аренды</a></li>
             <li> <a href="gallery.php">Фотогалерея</a></li>
             <li> <a href="contact.php">Контакты</a></li>
-            <li class="header-menu-inbtn">
-                {basket}
-                <!--<a href="login.php">Войти</a> -->
-            </li>
+
+            <div class="dropdown">
+                <li class="header-menu-inbtn">
+                    {basket}
+                </li>
+                <div class="dropdown-content">
+                    {basket_dropdown}
+                </div>
+            </div>
+
         </ul>
     </nav>
 </header>

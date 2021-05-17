@@ -1,5 +1,5 @@
 async function add_to_backet(id) {
-        fetch("http://localhost/methods/tobasket.php", {
+        let respnse = await fetch("http://localhost/methods/tobasket.php", {
         credentials: "same-origin",
         method: "POST",
         headers: {
@@ -7,4 +7,7 @@ async function add_to_backet(id) {
         },
         body: ("id=" + id)
     });
+    if (respnse.status == 401) {
+        alert("Вы должны быть авторизованы");
+    }
 }
