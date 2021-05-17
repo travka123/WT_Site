@@ -11,15 +11,8 @@ if ($_POST) {
             http_response_code(500);
         }
         
-        $sth = $dbh->prepare("SELECT * FROM `car` WHERE id={$_POST['id']}");
+        $sth = $dbh->prepare("DELETE FROM `backet` WHERE id={$_POST['id']} AND user_id={$_SESSION['id']}");
         $sth->execute();
-        if ($car = $sth->fetch(PDO::FETCH_ASSOC)) {
-            $sth = $dbh->prepare("INSERT INTO backet (user_id, car_id) VALUES ({$_SESSION['id']}, {$_POST['id']})");
-            $sth->execute();
-        }
-        else {
-            http_response_code(404);
-        }
     }
     else {
         http_response_code(401);

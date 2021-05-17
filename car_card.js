@@ -1,5 +1,5 @@
-async function add_to_basket(id) {
-    let response = await fetch("http://localhost/methods/tobasket.php", {
+async function add_to_backet(id) {
+        fetch("http://localhost/methods/tobasket.php", {
         credentials: "same-origin",
         method: "POST",
         headers: {

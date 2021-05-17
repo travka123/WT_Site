@@ -8,7 +8,7 @@ function get_car_card($car) {
     $card = str_replace('{car_name}', $car['name'], $card);
     $card = str_replace('{car_brand}', $car['brand'], $card);
     $card = str_replace('{car_price}', (string)$car['price'], $card);
-    $card = str_replace('{onclick_function}', "add_to_basket({$car['id']})", $card);
+    $card = str_replace('{onclick_function}', "add_to_backet({$car['id']})", $card);
     return $card;
 }
 

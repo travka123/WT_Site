@@ -1,0 +1,22 @@
+.content-section {
+    min-height: calc(100vh - 180px);
+}
+
+.content-section-backet-cards {
+    margin: 100px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: rgba(57, 57, 59, 0.7);
+    border-radius: 5px;
+}
+
+.content-section h1 {
+    margin-left: 40px;
+    color: white;
+}
+
+.content-section h2 {
+    margin-left: 40px;
+    color: white;
+}
