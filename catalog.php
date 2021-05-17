@@ -4,10 +4,11 @@ session_start();
 
 function get_car_card($car) {
     $card = file_get_contents('card.html');
-    $card = str_replace('{car_image}', $car['img'], $card);
+    $card = str_replace('{car_image}', $car['img'], $card); 
     $card = str_replace('{car_name}', $car['name'], $card);
     $card = str_replace('{car_brand}', $car['brand'], $card);
     $card = str_replace('{car_price}', (string)$car['price'], $card);
+    $card = str_replace('{onclick_function}', "add_to_basket({$car['id']})", $card);
     return $card;
 }
 
@@ -27,13 +28,8 @@ function get_cards() {
     return $cards;
 }
 
-$header = file_get_contents('header.html');
-if (isset($_SESSION['id'])) {
-    $header = str_replace('{basket}', '<a href="login.php">Корзина</a>', $header);
-}
-else {
-    $header = str_replace('{basket}', '<a href="login.php">Войти</a>', $header);
-}
+include('header.php');
+$header = prepare_header(file_get_contents('header.html'));
 
 $template = file_get_contents('template_base.html');
 $template = str_replace('{header}', $header, $template);
@@ -41,5 +37,5 @@ $template = str_replace('{footer}', file_get_contents('footer.html'), $template)
 $template = str_replace('{page_css}',  file_get_contents('catalog.css') . file_get_contents('card.css'), $template);
 $template = str_replace('{page_html}', file_get_contents('catalog.html'), $template);
 $template = str_replace('{cards}', get_cards(), $template);
-
+$template = $template . '<script src="car_card.js"></script>';
 echo $template;

@@ -17,15 +17,19 @@
                 font-size: xx-large;
                 color: white;
             }
-
+	    
             .login-section input {
                 font-size: x-large;
-                margin: 10px 5% 30px;
+                margin: 10px 5% 0px;
                 padding-left: 30px;
                 width: 90%;
                 border: 0;
                 padding: 0;
             }
+
+            .login-section .input-login {
+                margin: 10px 5% 30px;
+	    }
 
             .login-section span {
                 color: white;

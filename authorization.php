@@ -4,10 +4,9 @@ session_start();
 
 define('SUCCESS', 0);
 define('UNABLE_TO_CONNECT_TO_DATABASE', 1);
-define('USER_NOT_FOUND', 2);
-define('WRONG_PASSWORD', 3);
-define('USER_ALREADY_EXISTS', 4);
-define('INCORRECT_LOGIN', 5);
+define('WRONG_LOGIN_OR_PASSWORD', 2);
+define('USER_ALREADY_EXISTS', 3);
+define('INCORRECT_LOGIN', 4);
 
 function authorize() {
     try {
@@ -22,14 +21,15 @@ function authorize() {
     if ($user = $sth->fetch(PDO::FETCH_ASSOC)) {
         if ($user['password_hash'] == md5(md5($_POST['password']))) {
             $_SESSION['id']=$user['id'];
+            $_SESSION['role']=$user['role'];
             return SUCCESS;
         }
         else {
-            return WRONG_PASSWORD;
+            return WRONG_LOGIN_OR_PASSWORD;
         }
     }
     else {
-        return USER_NOT_FOUND;
+        return WRONG_LOGIN_OR_PASSWORD;
     }
 
     return SUCCESS;
@@ -37,7 +37,7 @@ function authorize() {
 
 function register() {
 
-    if(!(preg_match("/^[a-zA-Z0-9]+$/", $_POST['login']) && ((strlen($_POST['login']) > 3) || (strlen($_POST['login']) <= 30))))
+    if(!(preg_match("/^[a-zA-Z0-9]+$/", $_POST['login']) && ((strlen($_POST['login']) > 3) && (strlen($_POST['login']) <= 30))))
     {
         return INCORRECT_LOGIN;
     }
@@ -50,7 +50,7 @@ function register() {
     }
 
     $hash = md5(md5($_POST['password']));
-    $sth = $dbh->prepare("INSERT INTO `user` (login, password_hash) VALUES ('{$_POST['login']}', '{$hash}')");
+    $sth = $dbh->prepare("INSERT INTO `user` (login, password_hash, role) VALUES ('{$_POST['login']}', '{$hash}', 0)");
     try {
         $sth->execute();
     }
@@ -62,10 +62,22 @@ function register() {
 
 if ($_POST && (isset($_POST['login']) && isset($_POST['password']))) {
     if (isset($_POST['authorization'])) {
-        echo authorize();
+        $err = authorize();
+        if ($err == SUCCESS) {
+            header("Location: http://localhost/index.php");
+        }
+        else {
+            header("Location: http://localhost/login.php?error={$err}");
+        }
     }
     else if (isset($_POST['registration'])) {
-        echo register();
+        $err = register();
+        if ($err == SUCCESS) {
+            header("Location: http://localhost/login.php?message={$err}");
+        }
+        else {
+            header("Location: http://localhost/login.php?error={$err}");
+        }
     }
     else {
         http_response_code(404);

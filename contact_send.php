@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 function highlight_phonenumber(string $text)
 {
     preg_match('/[+]\d{1,3}[-]\d{1,3}[-]\d{3}[-]\d{2}[-]\d{2}/', $text, $matches);
@@ -36,7 +38,11 @@ if ($_POST)
 {
     $contact_information = $_POST['contact_information'];
     $template = file_get_contents('template_base.html');
-    $template = str_replace('{header}', file_get_contents('header.html'), $template);
+
+    include('header.php');
+    $header = prepare_header(file_get_contents('header.html'));
+
+    $template = str_replace('{header}', $header, $template);
     $template = str_replace('{footer}', file_get_contents('footer.html'), $template);
     $template = str_replace('{page_css}',  file_get_contents('contact_send.css'), $template);
     $template = str_replace('{page_html}', file_get_contents('contact_send.html'), $template);
