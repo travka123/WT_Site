@@ -2,12 +2,16 @@
 
 session_start();
 
+$total = 0;
+
 function get_car_card($car, $number) {
+    global $total;
     $card = file_get_contents('items_templates\\backet_card\\backet_card.html');
     $card = str_replace('{car_image}', $car['img'], $card); 
     $card = str_replace('{car_name}', $car['name'], $card);
     $card = str_replace('{car_brand}', $car['brand'], $card);
     $card = str_replace('{car_price}', (string)$car['price'], $card);
+    $total += $car['price'];
     $id = "card-auto-{$number}";
     $card = str_replace('{card_id}', $id, $card);
     $card = str_replace('{onclick_function}', "remove_from_backet({$car['backet_id']}, '{$id}')", $card);
@@ -49,7 +53,17 @@ if (isset($_SESSION['id'])) {
     $template = str_replace('{username}', $username, $template);
 
     $template = str_replace('{backet_cards}', get_cards($dbh), $template);
+
+    if ($total > 0) {
+        $template = str_replace('{checkout_btn}', '<button id="checkout" class="btn-checkout" onclick="checkout()">Оформить заказ</button>', $template);
+    }
+    else {
+        $template = str_replace('{checkout_btn}', '', $template);
+    }
+
     $template = $template . '<script src="methods\\remove_from_backet\\remove_from_backet.js"></script>';
+    $template = $template . '<script src="methods\\checkout\\checkout.js"></script>';
+
     echo $template;
 }
 else {

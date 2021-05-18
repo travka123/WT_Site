@@ -20,3 +20,24 @@
     margin-left: 40px;
     color: white;
 }
+
+.btn-checkout {
+    border-radius: 5px;
+    height: 70px;
+    width: 280px;
+    margin: 10px 40px 10px;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+    background-color: black;
+    color: white;
+    font-family: cursive;
+    letter-spacing: 2px;
+    font-size: large;
+    padding: 0px;
+}
+
+.btn-checkout:hover {
+    color: black;
+    background-color: white;
+}

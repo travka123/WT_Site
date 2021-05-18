@@ -8,4 +8,7 @@ async function remove_from_backet(order_id, rem_id) {
         body: ("id=" + order_id)
     });
     document.getElementById(rem_id).remove();
+    if (document.getElementsByClassName("card-auto").length == 0) {
+        document.getElementById("checkout").remove();
+    }
 }
